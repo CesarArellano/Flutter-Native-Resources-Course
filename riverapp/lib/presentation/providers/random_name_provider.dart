@@ -8,4 +8,4 @@ class RandomNameNotifier extends Notifier<String> {
   void regenerate(String newValue) => state = newValue;
 }
 
-final randomNameProvider = NotifierProvider<RandomNameNotifier, String>(RandomNameNotifier.new);
+final randomNameProvider = NotifierProvider.autoDispose<RandomNameNotifier, String>(RandomNameNotifier.new);

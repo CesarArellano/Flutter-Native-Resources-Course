@@ -5,6 +5,7 @@ import '../../presentation/screens/screens.dart';
 class AppRouter {
   final appRouter = GoRouter(
     initialLocation: '/',
+    
     routes: [
       GoRoute(
         path: '/',
@@ -13,6 +14,10 @@ class AppRouter {
       GoRoute(
         path: '/state-provider',
         builder: (context, state) => const StateProviderScreen(),
+      ),
+      GoRoute(
+        path: '/future-provider',
+        builder: (context, state) => const PokemonScreen(),
       ),
     ],
   );

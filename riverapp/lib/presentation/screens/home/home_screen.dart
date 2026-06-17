@@ -28,6 +28,11 @@ class _HomeScreenView extends StatelessWidget {
           subtitle: 'A simple state provider example',
           location: '/state-provider',
         ),
+        _CustomListTile(
+          title: 'Future Provider',
+          subtitle: 'A simple future provider + family example',
+          location: '/future-provider',
+        ),
       ],
     );
   }
@@ -46,8 +51,9 @@ class _CustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme;
     return ListTile(
-      title: Text(title),
+      title: Text(title, style: textStyle.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
       subtitle: Text(subtitle),
       onTap: () => context.push(location)
     );

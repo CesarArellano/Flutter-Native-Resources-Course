@@ -1,6 +1,11 @@
-import 'package:flutter_riverpod/legacy.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverapp/config/config.dart';
 
-final randomNameProvider = StateProvider<String>((ref) {
-  return RandomGenerator.generateRandomName();
-});
+class RandomNameNotifier extends Notifier<String> {
+  @override
+  String build() => RandomGenerator.generateRandomName();
+
+  void regenerate(String newValue) => state = newValue;
+}
+
+final randomNameProvider = NotifierProvider<RandomNameNotifier, String>(RandomNameNotifier.new);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:random_name_generator/random_name_generator.dart';
 import 'package:riverapp/presentation/providers/providers.dart';
 
 class StateProviderScreen extends ConsumerWidget {
@@ -25,7 +26,6 @@ class StateProviderScreen extends ConsumerWidget {
   }
 
   void _onRefresh(WidgetRef ref) {
-    // ref.read(randomNameProvider.notifier).state = RandomGenerator.generateRandomName();
-    ref.invalidate(randomNameProvider); // Create a new instance of the original provider.
+    ref.read(randomNameProvider.notifier).regenerate(RandomNames().manFullName());
   }
 }
